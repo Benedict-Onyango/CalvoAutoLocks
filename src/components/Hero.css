@@ -1,0 +1,81 @@
+#hero{
+    position: relative;
+    height: 100vh;
+    min-height: 550px;
+    background-color: #0a0a0a;
+    overflow: hidden;
+}
+
+#quick_link{
+    position: absolute;
+    top: 65%; left: 25%; transform: translate(-50%,-50%);
+    z-index: 20;
+    margin-bottom: 1.5rem;
+}
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+.links a{
+    text-decoration: none;
+}
+.call-btn{
+    background: #c8922a;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.3s ease;
+    a{
+        color:#141410
+    }
+}
+.call-btn:hover{
+    background: #e8b84b;
+    transform: translateY(-1px);
+}
+.book-btn{
+    background: transparent;
+    border: 1px solid #f5f2eb;
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    font-weight: 500;
+    display: inline-block;
+    transform: all 0.3s ease;
+    a{
+        color: #f5f2eb;
+    }
+}
+.book-btn:hover{
+    border-color: #c8922a;
+    a{
+        color: #c8922a;
+    }
+}
+#hero-carousel,
+.carousel-inner,
+.carousel-item{
+    height: 100%;
+    width: 100%;
+}
+
+img{
+    filter: brightness(45%);
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.sub{
+    color: #f5f2eb;
+    font-size: 3.5rem;
+    line-height: 0.92;
+    font-weight: bold;
+    max-width: 580px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

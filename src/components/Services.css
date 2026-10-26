@@ -1,0 +1,69 @@
+#services{
+    padding: 2.5rem 5%;
+}
+.introduction{
+    color: #c8922a;
+    margin-bottom: 0.75rem;
+}
+.main_title{
+    margin: 0;
+    font-family: 'Bebas Neue',sans-serif;
+    font-size: 3rem;
+    color: rgb(4, 4, 81);
+}
+.sub-text{
+    color: #8a8880;
+    margin: 0;
+    margin-bottom: 0.95rem;
+}
+.services_list{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 0;
+}
+.service_card{
+    padding: 2.5rem 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #8a8880;
+    cursor: pointer;
+}
+.service_card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: #c8922a;
+    transition: width 0.4s ease;
+}
+
+.service_card:hover { background: #f5f2eb; }
+.service_card:hover::after { width: 100%; }
+.service-icon{
+    width: 48px;
+    height: 48px;
+    color: #c8922a;
+    margin-bottom: 1.5rem;
+}
+.service-name{
+    margin: 0;
+    font-family: 'Bebas Neue',sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.1em;
+    color: rgb(4, 4, 81);
+}
+.service-price{
+    color: #c8922a;
+}
+@media screen and (max-width:768px) {
+    .services_list{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width:426px) {
+    .services_list{
+        grid-template-columns: 1fr;
+    }
+}
