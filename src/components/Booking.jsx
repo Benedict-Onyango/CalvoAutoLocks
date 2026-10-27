@@ -1,6 +1,15 @@
+import axios from "axios";
 import "./Booking.css";
+import { useEffect, useState } from "react";
 
 export function Booking() {
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    axios.get("/api/services/").then((response) => {
+      setServices(response.data);
+    });
+  }, []);
   return (
     <>
       <section id="book">
@@ -83,12 +92,16 @@ export function Booking() {
                 required
               >
                 <option value="">Select a service…</option>
-                <option>Car Lockout</option>
-                <option>Key Duplication</option>
-                <option>Ignition Repair</option>
-                <option>Transponder Key</option>
-                <option>Emergency Call-Out</option>
-                <option>Lock Replacement</option>
+                {services.map((service) => {
+                  return (
+                    <option key={service.id} value={service.id}>
+                      {service.name}
+                      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      KES:
+                      {service.price}
+                    </option>
+                  );
+                })}
               </select>
             </div>
             <div className="row g-3 form-group">
