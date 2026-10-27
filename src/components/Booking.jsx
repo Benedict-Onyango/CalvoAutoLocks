@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 export function Booking() {
   const [services, setServices] = useState([]);
+  const maxLen = Math.max(...services.map(s => s.name.length));
+
 
   useEffect(() => {
     axios.get("/api/services/").then((response) => {
@@ -95,10 +97,9 @@ export function Booking() {
                 {services.map((service) => {
                   return (
                     <option key={service.id} value={service.id}>
-                      {service.name}
-                      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                      KES:
-                      {service.price}
+                      <option key={service.id} value={service.id}>
+                        {`${service.name.padEnd(maxLen + 50, "\u00A0")}KES: ${service.price}`}
+                      </option>
                     </option>
                   );
                 })}
