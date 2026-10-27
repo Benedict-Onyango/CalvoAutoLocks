@@ -38,7 +38,7 @@ export function Booking() {
         <div className="right_side">
           <form action="">
             <div className="form-group">
-              <label for="name" className="form-label">
+              <label htmlFor="name" className="form-label">
                 Name
               </label>
               <input
@@ -50,7 +50,7 @@ export function Booking() {
             </div>
             <div className="row g-3 form-group">
               <div className="col">
-                <label for="phone" className="form-label">
+                <label htmlFor="phone" className="form-label">
                   Phone Number
                 </label>
                 <input
@@ -61,7 +61,7 @@ export function Booking() {
                 />
               </div>
               <div className="col">
-                <label for="email" className="form-label">
+                <label htmlFor="email" className="form-label">
                   Email Address
                 </label>
                 <input
@@ -73,7 +73,7 @@ export function Booking() {
               </div>
             </div>
             <div className="form-group">
-              <label for="service" className="form-label">
+              <label htmlFor="service" className="form-label">
                 Service
               </label>
               <select
@@ -93,7 +93,7 @@ export function Booking() {
             </div>
             <div className="row g-3 form-group">
               <div className="col">
-                <label for="make" className="form-label">
+                <label htmlFor="make" className="form-label">
                   Car Make
                 </label>
                 <input
@@ -104,7 +104,7 @@ export function Booking() {
                 />
               </div>
               <div className="col">
-                <label for="model" className="form-label">
+                <label htmlFor="model" className="form-label">
                   Car Model
                 </label>
                 <input
@@ -116,7 +116,7 @@ export function Booking() {
               </div>
             </div>
             <div className="form-group">
-              <label for="location" className="form-label">
+              <label htmlFor="location" className="form-label">
                 Location
               </label>
               <input
@@ -128,7 +128,7 @@ export function Booking() {
             </div>
             <div className="row g-3 form-group">
               <div className="col">
-                <label for="date" className="form-label">
+                <label htmlFor="date" className="form-label">
                   Preferred Date
                 </label>
                 <input
@@ -139,7 +139,7 @@ export function Booking() {
                 />
               </div>
               <div className="col">
-                <label for="time" className="form-label">
+                <label htmlFor="time" className="form-label">
                   Preferred Time
                 </label>
                 <input
@@ -151,7 +151,7 @@ export function Booking() {
               </div>
             </div>
             <div className="form-group">
-              <label for="notes" className="form-label">
+              <label htmlFor="notes" className="form-label">
                 Additional Notes
               </label>
               <textarea

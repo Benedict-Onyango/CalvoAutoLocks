@@ -18,8 +18,8 @@ export function Services() {
               viewBox="0 0 48 48"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
             >
               <rect x="10" y="20" width="28" height="22" rx="2"></rect>
               <path d="M16 20V14a8 8 0 0116 0v6"></path>
@@ -39,8 +39,8 @@ export function Services() {
               viewBox="0 0 48 48"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
             >
               <circle cx="20" cy="22" r="12"></circle>
               <line x1="30" y1="32" x2="44" y2="44"></line>
@@ -59,8 +59,8 @@ export function Services() {
               viewBox="0 0 48 48"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
             >
               <circle cx="24" cy="24" r="14"></circle>
               <path d="M24 16v8l5 5"></path>
@@ -79,8 +79,8 @@ export function Services() {
               viewBox="0 0 48 48"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
             >
               <rect x="8" y="14" width="32" height="20" rx="2" />
               <circle cx="24" cy="24" r="4" />
@@ -101,8 +101,8 @@ export function Services() {
               viewBox="0 0 48 48"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
             >
               <path d="M24 6l4 12h12l-10 7 4 12-10-7-10 7 4-12L8 18h12z" />
             </svg>
@@ -119,8 +119,8 @@ export function Services() {
               viewBox="0 0 48 48"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
             >
               <rect x="10" y="26" width="28" height="16" rx="2" />
               <path d="M18 26V18a6 6 0 0112 0v8" />
