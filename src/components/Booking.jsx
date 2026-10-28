@@ -1,17 +1,49 @@
 import axios from "axios";
 import "./Booking.css";
+import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 
 export function Booking() {
   const [services, setServices] = useState([]);
-  const maxLen = Math.max(...services.map(s => s.name.length));
-
+  const maxLen = Math.max(...services.map((s) => s.name.length));
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isSubmitting, errors },
+  } = useForm({
+    defaultValues: {
+      customer_name: "",
+      phone_number: "",
+      email: "",
+      service: "",
+      car_make: "",
+      car_model: "",
+      location: "",
+      date: "",
+      time: "",
+      extra_notes: "",
+    },
+  });
 
   useEffect(() => {
     axios.get("/api/services/").then((response) => {
       setServices(response.data);
     });
   }, []);
+
+  const onSubmit = async (data) => {
+    try {
+      await axios.post("/api/orders/", {
+        ...data,
+        service: Number(data.service),
+      });
+      alert("Submitted successfully");
+      reset();
+    } catch (error) {
+      alert("An Error occured while submitting");
+    }
+  };
   return (
     <>
       <section id="book">
@@ -47,7 +79,7 @@ export function Booking() {
           </ul>
         </div>
         <div className="right_side">
-          <form action="">
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
               <label htmlFor="name" className="form-label">
                 Name
@@ -57,7 +89,9 @@ export function Booking() {
                 id="name"
                 placeholder="John Doe"
                 className="form-control"
+                {...register("customer_name", { required: "Name is required" })}
               />
+              {errors.name && <p className="error">{errors.name.message}</p>}
             </div>
             <div className="row g-3 form-group">
               <div className="col">
@@ -65,22 +99,42 @@ export function Booking() {
                   Phone Number
                 </label>
                 <input
-                  type="text"
+                  type="tel"
                   id="phone"
                   placeholder="07XX XXX XXX"
                   className="form-control"
+                  {...register("phone_number", {
+                    required: "Phone Number is required.",
+                    pattern: {
+                      value: /^(?:\+254|0)[17]\d{8}$/,
+                      message: "Enter a valid Kenyan phone number.",
+                    },
+                  })}
                 />
+                {errors.phone_number && (
+                  <p className="error">{errors.phone_number.message}</p>
+                )}
               </div>
               <div className="col">
                 <label htmlFor="email" className="form-label">
                   Email Address
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   id="email"
                   placeholder="john@email.com"
                   className="form-control"
+                  {...register("email", {
+                    required: "Email is required.",
+                    pattern: {
+                      value: /^\S+@\S+\.\S+$/,
+                      message: "Enter a valid email address.",
+                    },
+                  })}
                 />
+                {errors.email && (
+                  <p className="error">{errors.email.message}</p>
+                )}
               </div>
             </div>
             <div className="form-group">
@@ -91,7 +145,9 @@ export function Booking() {
                 name="service"
                 id="service"
                 className="form-control"
-                required
+                {...register("service", {
+                  required: "Please select a service",
+                })}
               >
                 <option value="">Select a service…</option>
                 {services.map((service) => {
@@ -104,6 +160,9 @@ export function Booking() {
                   );
                 })}
               </select>
+              {errors.service && (
+                <p className="error">{errors.service.message}</p>
+              )}
             </div>
             <div className="row g-3 form-group">
               <div className="col">
@@ -115,7 +174,13 @@ export function Booking() {
                   id="make"
                   placeholder="Porsche"
                   className="form-control"
+                  {...register("car_make", {
+                    required: "What is your car make",
+                  })}
                 />
+                {errors.car_make && (
+                  <p className="error">{errors.car_make.message}</p>
+                )}
               </div>
               <div className="col">
                 <label htmlFor="model" className="form-label">
@@ -126,7 +191,13 @@ export function Booking() {
                   id="model"
                   placeholder="Cayenne"
                   className="form-control"
+                  {...register("car_model", {
+                    required: "What is your car model",
+                  })}
                 />
+                {errors.car_model && (
+                  <p className="error">{errors.car_model.message}</p>
+                )}
               </div>
             </div>
             <div className="form-group">
@@ -138,6 +209,7 @@ export function Booking() {
                 id="location"
                 placeholder="Westlands, Nairobi"
                 className="form-control"
+                {...register("location")}
               />
             </div>
             <div className="row g-3 form-group">
@@ -150,6 +222,7 @@ export function Booking() {
                   name="date"
                   id="date"
                   className="form-control"
+                  {...register("date")}
                 />
               </div>
               <div className="col">
@@ -161,6 +234,7 @@ export function Booking() {
                   name="time"
                   id="time"
                   className="form-control"
+                  {...register("time")}
                 />
               </div>
             </div>
@@ -169,11 +243,11 @@ export function Booking() {
                 Additional Notes
               </label>
               <textarea
-                name="notes"
                 id="notes"
                 placeholder="Any extra details about the issue..."
                 className="form-control"
                 style={{ minHeight: "75px" }}
+                {...register("extra_notes")}
               ></textarea>
             </div>
             <div className="form-group">
@@ -181,8 +255,9 @@ export function Booking() {
                 type="submit"
                 className="btn"
                 style={{ width: "100%", background: "#c8922a" }}
+                disabled={isSubmitting}
               >
-                BOOK APPOINTMENT
+                {isSubmitting ? "Submitting..." : "BOOK APPOINTMENT"}
               </button>
             </div>
           </form>

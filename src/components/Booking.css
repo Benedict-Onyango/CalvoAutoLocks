@@ -5,6 +5,7 @@
   gap: 5rem;
   padding: 6rem 5%;
   align-items: start;
+  text-transform: none;
   background: #f5f2eb;
 }
 form {
@@ -13,6 +14,7 @@ form {
 
 form label {
   font-size: 1rem;
+  text-transform: capitalize;
 }
 
 .section-label {
@@ -100,6 +102,11 @@ div.col{
 }
 .form-group select option {
   background: #f5f2eb;
+}
+.error{
+  color: red;
+  font-size: 0.8rem;
+  margin: 0;
 }
 .section-sub {
   font-size: 1rem;
