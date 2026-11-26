@@ -44,7 +44,7 @@ export function Footer() {
               </a>
             </div>
             <div className="social_media_links whatsapp">
-              <a href="https://wa.me/+254722215442?text=Hello!">
+              <a href="https://wa.me/+254712345678?text=Hello!">
                 <i className="fa-brands fa-whatsapp"></i>
               </a>
             </div>

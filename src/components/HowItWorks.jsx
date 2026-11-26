@@ -11,7 +11,7 @@ export function HowItWorks() {
           </div>
         </div>
         <div className="right_side">
-          <a href="tel:+254722215442">0722 215 442</a>
+          <a href="tel:+254712345678">0712 345 678</a>
         </div>
       </section>
 

@@ -26,19 +26,20 @@ export function Booking() {
     },
   });
 
-  useEffect(() => {
-    axios.get("/api/services/").then((response) => {
-      setServices(response.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get("/api/services/").then((response) => {
+  //     setServices(response.data);
+  //   });
+  // }, []);
 
   const onSubmit = async (data) => {
     try {
-      await axios.post("/api/orders/", {
-        ...data,
-        service: Number(data.service),
-      });
-      alert("Submitted successfully");
+      // await axios.post("/api/orders/", {
+      //   ...data,
+      //   service: Number(data.service),
+      // });
+
+      alert("Submitted successfully, please wait as we process your booking.");
       reset();
     } catch (error) {
       alert("An Error occured while submitting");
