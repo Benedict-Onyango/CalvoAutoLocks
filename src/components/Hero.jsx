@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import bmwCar from "../assets/bmwCar_clean.png";
 import discovery from "../assets/discovery_clean.jpg";
 import gWagon from "../assets/G-wagonCar_clean.png";
@@ -7,13 +8,43 @@ import vwCar from "../assets/vwCar.jpg";
 import "./Hero.css";
 
 export function Hero() {
+  const carouselRef = useRef(null);
+
+  useEffect(() => {
+    const element = carouselRef.current;
+    if (!element) return;
+
+    let carouselInstance = null;
+
+    const initCarousel = () => {
+      const BoostrapCarousel = window.bootstrap?.Carousel;
+      if (!BoostrapCarousel) return;
+
+      carouselInstance = BoostrapCarousel.getOrCreateInstance(element, {
+        interval: 4000,
+        ride: "carousel",
+        pause: false,
+      });
+      carouselInstance.cycle();
+    };
+    if (window.bootstrap?.Carousel) {
+      initCarousel();
+    } else {
+      window.addEventListener("load", initCarousel);
+    }
+
+    return () => {
+      window.removeEventListener("load", initCarousel);
+      carouselInstance?.dispose();
+    };
+  }, []);
   return (
     <>
       <section id="hero">
         <div
+          ref={carouselRef}
           id="hero-carousel"
           className="carousel slide carousel-fade"
-          data-bs-ride="carousel"
         >
           <div className="carousel-indicators">
             <button
@@ -81,7 +112,7 @@ export function Hero() {
             <p>
               LOCKED <br />
               OUT OF YOUR <br />
-              <span style={{color: '#c8922a'}}>CAR?</span>
+              <span style={{ color: "#c8922a" }}>CAR?</span>
             </p>
           </div>
           <div className="links">

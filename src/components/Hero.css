@@ -1,16 +1,27 @@
 #hero{
     position: relative;
-    height: 100vh;
+    height: 100svh;
+    width: 100%;
     min-height: 550px;
     background-color: #0a0a0a;
     overflow: hidden;
+}
+/* Responsive overlay wrapper replacing rigid top/left percentages */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 6% 14vh;
+  pointer-events: none; 
 }
 
 #quick_link{
     position: absolute;
     top: 65%; left: 25%; transform: translate(-50%,-50%);
     z-index: 20;
-    margin-bottom: 1.5rem;
+    margin-bottom: clamp(1.25rem, 5.5vw, 1.5rem);
 }
 .links{
     display: flex;
@@ -71,11 +82,58 @@ img{
 }
 .sub{
     color: #f5f2eb;
-    font-size: 3.5rem;
+    font-size: clamp(2.25rem, 5.5vw, 3.5rem);
     line-height: 0.92;
     font-weight: bold;
     max-width: 580px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (max-width: 768px) {
+    #hero {
+    height: 75svh;
+    min-height: 480px;
+  }
+  .hero-overlay {
+    align-items: center;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  .sub {
+    margin: 0 auto;
+  }
+
+  .links {
+    justify-content: center;
+  }
+
+  #hero .carousel-indicators {
+    margin-bottom: 1.25rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+   #quick_link{
+    top: 65%; left: 50%; transform: translate(-50%,-50%);
+   } 
+  .links {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin: 1.5rem auto 0;
+    gap: 0.85rem;
+  }
+
+  .call-btn,
+  .book-btn {
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+  }
+  .sub p{
+    text-align: center;
+  }
 }

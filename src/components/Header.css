@@ -3,8 +3,8 @@ header{
             align-items: center;
             justify-content: space-between;
             padding: 1.25rem 5%;
-            position: fixed;
-            top: 0;left: 0; right: 0;
+            position: sticky;
+            top: 0;
             background-color: rgba(0,0,0,0.85);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(200,146,42,0.15);
