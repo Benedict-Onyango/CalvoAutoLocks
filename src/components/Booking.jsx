@@ -102,7 +102,7 @@ export function Booking() {
                 className="form-control"
                 {...register("customer_name", { required: "Name is required" })}
               />
-              {errors.customer_name && <p className="error">{errors.name.message}</p>}
+              {errors.customer_name && <p className="error">{errors.customer_name.message}</p>}
             </div>
             <div className="row g-3 form-group">
               <div className="col">
