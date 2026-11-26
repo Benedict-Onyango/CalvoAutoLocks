@@ -42,7 +42,7 @@ export function Booking() {
   //   });
   // }, []);
 
-  const onSubmit = async () => {
+  const onSubmit = () => {
     try {
       // await axios.post("/api/orders/", {
       //   ...data,
