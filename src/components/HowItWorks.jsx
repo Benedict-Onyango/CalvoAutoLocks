@@ -19,7 +19,7 @@ export function HowItWorks() {
         <div className="introduction">
           <h5>THE PROCESS</h5>
           <h1>HOW IT WORKS</h1>
-          <p>Three steps from your call to getting back on the road.</p>
+          <p>Four steps from your call to getting back on the road.</p>
         </div>
         <div className="steps">
           <div className="steps_tags">
@@ -32,7 +32,7 @@ export function HowItWorks() {
           </div>
           <div className="steps_tags">
             <p className="numbering">02</p>
-            <h4 className="sub-heading">WE COME TO YOUR</h4>
+            <h4 className="sub-heading">WE COME TO YOU</h4>
             <p>
               Our technician heads to your exact location. No towing. No
               dealership wait. We work on-site.
@@ -48,7 +48,7 @@ export function HowItWorks() {
           </div>
           <div className="steps_tags">
             <p className="numbering">04</p>
-            <h4 className="sub-heading">ALL CARS COVERD</h4>
+            <h4 className="sub-heading">ALL CARS COVERED</h4>
             <p>
               Toyota, Subaru, Nissan, Mercedes, BMW and more — any make, any
               model, any year.

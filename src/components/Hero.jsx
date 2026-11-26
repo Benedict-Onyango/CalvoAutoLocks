@@ -118,7 +118,7 @@ export function Hero() {
           <div className="links">
             <div>
               <button className="call-btn">
-                <a href="tel:+254722215442">CALL NOW</a>
+                <a href="tel:+254712345678">CALL NOW</a>
               </button>
             </div>
             <div>

@@ -1,11 +1,21 @@
-import axios from "axios";
+// import axios from "axios";
 import "./Booking.css";
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+// import { useState } from "react";
+
+const SERVICES = [
+  {id:1,name: "IGNITION REPAIR"},
+  {id:2,name: "TRANSPONDER KEY"},
+  {id:3,name: "EMERGENCY CALL-OUT"},
+  {id:4,name: "LOCK REPLACEMENT"},
+  {id:5,name: "KEY DUPLICATION"},
+  {id:6,name: "CAR LOCKOUT"},
+  
+]
 
 export function Booking() {
-  const [services, setServices] = useState([]);
-  const maxLen = Math.max(...services.map((s) => s.name.length));
+  // const [services, setServices] = useState([]);
+  // const maxLen = Math.max(...services.map((s) => s.name.length));
   const {
     register,
     handleSubmit,
@@ -32,7 +42,7 @@ export function Booking() {
   //   });
   // }, []);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async () => {
     try {
       // await axios.post("/api/orders/", {
       //   ...data,
@@ -92,7 +102,7 @@ export function Booking() {
                 className="form-control"
                 {...register("customer_name", { required: "Name is required" })}
               />
-              {errors.name && <p className="error">{errors.name.message}</p>}
+              {errors.customer_name && <p className="error">{errors.name.message}</p>}
             </div>
             <div className="row g-3 form-group">
               <div className="col">
@@ -151,11 +161,11 @@ export function Booking() {
                 })}
               >
                 <option value="">Select a service…</option>
-                {services.map((service) => {
+                {SERVICES.map((service) => {
                   return (
                     <option key={service.id} value={service.id}>
                       <option key={service.id} value={service.id}>
-                        {`${service.name.padEnd(maxLen + 50, "\u00A0")}KES: ${service.price}`}
+                        {`${service.name}`}
                       </option>
                     </option>
                   );
